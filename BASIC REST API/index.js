@@ -51,10 +51,25 @@ app.get('/blogs/:id', (req, res) => {
     });
 });
 
-//deleting the blog
+// deleting the blog
 app.delete('/blogs/:id', (req, res) => {
-    //todo
-})
+    // const blogId = parseInt();
+    const index = blogsList.findIndex((blog) => blog.id == req.params.id);
+
+    if (index !== -1) {
+        blogsList.splice(index, 1);
+        return res.status(200).json({
+            success: true,
+            message: "Blog deleted successfully."
+        });
+    } else {
+        return res.status(404).json({
+            success: false,
+            message: "Blog not found."
+        });
+    }
+});
+
 
 
 //starting the server
