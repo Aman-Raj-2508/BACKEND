@@ -18,10 +18,28 @@ app.use(bodyParser.json());
 //Mimic the db using an array
 let blogsList = [];
 
+//Concept of Middlewares
+
+function logger(req, res, next) {
+    console.log(req.url);
+    console.log(res.body);
+    next();
+}
+
+function isAuthenticated(req, res, next) {
+    console.log("yes user is authenticated");
+    next();
+}
+
+//Calling middleware
+
+app.use(logger);
+
 //Setting up APIs
 
 //getting all the blogs
-app.get('/blogs', (req, res) => {
+app.get('/blogs', isAuthenticated, (req, res) => {
+    console.log("hitting");
     return res.status(404).json({
         data: blogsList,
         success: true
