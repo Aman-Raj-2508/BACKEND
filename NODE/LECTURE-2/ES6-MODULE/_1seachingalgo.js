@@ -1,4 +1,5 @@
-//Second way of ES-6 modulling without using .mjs extension
+//<-----------------Second way of ES-6 modulling without using .mjs extension-------------------->
+
 // function linearSearch(arr, x) {
 //     for (let i = 0; i < arr.length; i++) {
 //         if (arr[i] === x) {
@@ -13,13 +14,13 @@
 // }
 console.log("ending searching");
 
-/** Exporting using module.exports  which works only  in common js we have to change file to .cjs */
+/**<----------------- Exporting using module.exports  which works only  in common js we have to change file to .cjs -------------->*/
 // module.exports = {
 //     linear: linearSearch,
 //     binary: binarySearch,
 // }
 
-// Second way to export so that we can use (import searching from './_1seachingalgo.js';)
+//<------------------- Second way to export so that we can use (import searching from './_1seachingalgo.js';)--------->
 
 // export default function fun() { //default exports
 //     console.log("fun");
